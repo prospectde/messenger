@@ -81,18 +81,23 @@
         }
     </style>
     <script>
-      (function (g, e, n, es, ys) {
-        g['_genesysJs'] = e;
-        g[e] = g[e] || function () {
-          (g[e].q = g[e].q || []).push(arguments)
-        };
-        g[e].t = 1 * new Date();
-        g[e].c = es;
-        ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
-      })(window, 'Genesys', 'https://apps.mypurecloud.ie/genesys-bootstrap/genesys.min.js', {
-        environment: 'prod-euw1',
-        deploymentId: 'fb9bc91d-52c8-4d35-81e7-f51e742f37f7'
-      });
+      function loadGenesysScript() {
+        (function (g, e, n, es, ys) {
+          g['_genesysJs'] = e;
+          g[e] = g[e] || function () {
+            (g[e].q = g[e].q || []).push(arguments)
+          };
+          g[e].t = 1 * new Date();
+          g[e].c = es;
+          ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+        })(window, 'Genesys', 'https://apps.mypurecloud.ie/genesys-bootstrap/genesys.min.js', {
+          environment: 'prod-euw1',
+          deploymentId: 'fb9bc91d-52c8-4d35-81e7-f51e742f37f7'
+        });
+      }
+
+      // Direkt auf der Hauptseite laden
+      loadGenesysScript();
     </script>
     <script>
         function setLanguage(lang) {
@@ -136,6 +141,14 @@
 
                 document.querySelector('footer').innerHTML = '&copy; 2025 Fictive Bank AG – All rights reserved';
             }
+
+            // Script auch bei Klick auf Kontakt laden
+            const contactLink = document.querySelector('nav a[href="#kontakt"]') || document.querySelectorAll('nav a')[3];
+            if (contactLink) {
+                contactLink.addEventListener('click', () => {
+                    loadGenesysScript();
+                });
+            }
         });
     </script>
 </head>
@@ -157,7 +170,7 @@
     <a href="#">Startseite</a>
     <a href="#">Produkte</a>
     <a href="#">Konto eröffnen</a>
-    <a href="#">Kontakt</a>
+    <a href="#kontakt">Kontakt</a>
 </nav>
 
 <main>
