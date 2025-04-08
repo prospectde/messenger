@@ -17,6 +17,17 @@
             color: #fff;
             padding: 30px 0;
             text-align: center;
+            position: relative;
+        }
+        .lang-switch {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+        .lang-switch select {
+            padding: 5px;
+            border-radius: 4px;
+            border: none;
         }
         nav {
             background-color: #00509e;
@@ -83,10 +94,61 @@
         deploymentId: 'fb9bc91d-52c8-4d35-81e7-f51e742f37f7'
       });
     </script>
+    <script>
+        function setLanguage(lang) {
+            localStorage.setItem('preferredLanguage', lang);
+            location.reload();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const userLang = savedLang || (navigator.language || navigator.userLanguage);
+            const lang = userLang.startsWith('en') ? 'en' : 'de';
+
+            document.getElementById('language-select').value = lang;
+
+            if (lang === 'en') {
+                document.documentElement.lang = 'en';
+                document.title = 'Fictive Bank AG';
+                document.querySelector('header h1').textContent = 'Fictive Bank AG';
+                document.querySelector('header p').textContent = 'Your trusted partner for all financial matters';
+
+                const navLinks = document.querySelectorAll('nav a');
+                if(navLinks.length >= 4) {
+                    navLinks[0].textContent = 'Home';
+                    navLinks[1].textContent = 'Products';
+                    navLinks[2].textContent = 'Open Account';
+                    navLinks[3].textContent = 'Contact';
+                }
+
+                document.querySelector('main h2').textContent = 'Welcome to Fictive Bank AG';
+                document.querySelector('main p').textContent = 'We offer modern banking solutions tailored to your individual needs. Trust, security, and innovation are at the heart of everything we do.';
+
+                const features = document.querySelectorAll('.feature');
+                if (features.length >= 3) {
+                    features[0].querySelector('h3').textContent = 'Online Banking';
+                    features[0].querySelector('p').textContent = 'Manage your finances conveniently from anywhere – secure and available around the clock.';
+                    features[1].querySelector('h3').textContent = 'Checking Account';
+                    features[1].querySelector('p').textContent = 'Our free checking account with many extras – perfect for everyday use.';
+                    features[2].querySelector('h3').textContent = 'Loans';
+                    features[2].querySelector('p').textContent = 'Fair conditions for your goals – whether it’s a car, home, or new projects.';
+                }
+
+                document.querySelector('footer').innerHTML = '&copy; 2025 Fictive Bank AG – All rights reserved';
+            }
+        });
+    </script>
 </head>
 <body>
 
 <header>
+    <div class="lang-switch">
+        <label for="language-select" style="color:white;">Sprache / Language:</label>
+        <select id="language-select" onchange="setLanguage(this.value)">
+            <option value="de">Deutsch</option>
+            <option value="en">English</option>
+        </select>
+    </div>
     <h1>Fiktive Bank AG</h1>
     <p>Ihre vertrauensvolle Partnerin in allen Finanzfragen</p>
 </header>
