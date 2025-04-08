@@ -3,64 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine Webseite</title>
+    <title>Fiktive Bank AG</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f2f2f2;
             color: #333;
         }
         header {
-            background-color: #333;
+            background-color: #003366;
             color: #fff;
-            padding: 20px 0;
+            padding: 30px 0;
             text-align: center;
         }
         nav {
-            background-color: #555;
-            padding: 10px;
+            background-color: #00509e;
+            padding: 15px;
             text-align: center;
         }
         nav a {
             color: white;
-            margin: 0 15px;
+            margin: 0 20px;
             text-decoration: none;
+            font-weight: bold;
         }
         main {
+            padding: 30px;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .feature {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
             padding: 20px;
+            margin: 10px;
+            width: 280px;
         }
         footer {
-            background-color: #333;
+            background-color: #003366;
             color: white;
             text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            padding: 15px 0;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Willkommen auf meiner Webseite</h1>
+    <h1>Fiktive Bank AG</h1>
+    <p>Ihre vertrauensvolle Partnerin in allen Finanzfragen</p>
 </header>
 
 <nav>
     <a href="#">Startseite</a>
-    <a href="#">Über mich</a>
+    <a href="#">Produkte</a>
+    <a href="#">Konto eröffnen</a>
     <a href="#">Kontakt</a>
 </nav>
 
 <main>
-    <h2>Über diese Seite</h2>
-    <p>Dies ist eine einfache, standardmäßige HTML-Webseite mit Header, Navigation, Hauptinhalt und Footer.</p>
+    <h2>Willkommen bei der Fiktiven Bank AG</h2>
+    <p>Wir bieten moderne Banklösungen, die auf Ihre individuellen Bedürfnisse zugeschnitten sind. Vertrauen, Sicherheit und Innovation stehen bei uns im Mittelpunkt.</p>
+
+    <div class="features">
+        <div class="feature">
+            <h3>Online-Banking</h3>
+            <p>Verwalten Sie Ihre Finanzen bequem von überall aus – sicher und rund um die Uhr verfügbar.</p>
+        </div>
+        <div class="feature">
+            <h3>Girokonto</h3>
+            <p>Unser kostenloses Girokonto mit vielen Extras – perfekt für den Alltag.</p>
+        </div>
+        <div class="feature">
+            <h3>Kredite</h3>
+            <p>Faire Konditionen für Ihre Wünsche – ob Auto, Haus oder neue Projekte.</p>
+        </div>
+    </div>
 </main>
 
 <footer>
-    &copy; 2025 Meine Webseite
+    &copy; 2025 Fiktive Bank AG – Alle Rechte vorbehalten
 </footer>
 
 </body>
