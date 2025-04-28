@@ -103,9 +103,9 @@
 
     Genesys(
         'subscribe',
-        "MessagingService.messagesReceived",
-        (e) => (beep());
-    )
+        (e) => beep()
+    );
+    
     </script>
     <script>
         function setLanguage(lang) {
