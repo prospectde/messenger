@@ -102,9 +102,12 @@
         Genesys(
             'subscribe',
             "MessagingService.messagesReceived",
-            (e) => beep()
+            (e) => {
+            console.log("Message received event detected!", e);
+            beep();
+            }
         );
-    });
+    })();
 
     
     </script>
