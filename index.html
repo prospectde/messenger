@@ -117,6 +117,7 @@
             'subscribe',
             "MessagingService.messagesReceived",
             (e) => {
+            notify();
             console.log("Message received event detected!", e);
             beep();
             }
