@@ -104,6 +104,7 @@
             "MessagingService.messagesReceived",
             (e) => {
             console.log("Message received event detected!", e);
+            notify();
             beep();
             }
         );
