@@ -104,11 +104,11 @@
         console.log("Message received event detected!");
         // Use browser notifications instead of audio
         if (Notification.permission === "granted") {
-            new Notification("New Message Received");
+            new Notification("Neue Nachricht");
         } else if (Notification.permission !== "denied") {
             Notification.requestPermission().then(permission => {
                 if (permission === "granted") {
-                    new Notification("New Message Received");
+                    new Notification("Neue Nachricht");
                 }
             });
         }
