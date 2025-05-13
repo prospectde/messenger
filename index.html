@@ -106,9 +106,10 @@
     const minInterval = 5000; 
     function showNotification() {
         const now = Date.now();
-        if (now - lastNotification < minInterval) {
+        if (lastNotificationTime != 0 && now - lastNotificationTime < minInterval) {
             return;
         }
+        lastNotificationTime = now;
         new Notification("Neue Nachricht");
     }
      
