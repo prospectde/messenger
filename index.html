@@ -128,13 +128,23 @@
             });
         }
     }    
+        Genesys(    
+            "subscribe", 
+            "MessagingService.sendingMessage", 
+            (e) => {
+                console.log("Message sending event detected!", e);  // Logging für Tests
+                beep();
+                const now = Date.now();
+                lastNotificationTime = now;
+            }
+        );
         Genesys(
             'subscribe',
             "MessagingService.messagesReceived",
             (e) => {
-            notify();
-            //console.log("Message received event detected!", e);  // Logging für Tests
-            // beep();  // custom notification sound
+                notify();
+                //console.log("Message received event detected!", e);  // Logging für Tests
+                // beep();  // custom notification sound
             }
         );
 
