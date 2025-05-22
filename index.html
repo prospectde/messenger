@@ -151,6 +151,16 @@
 
         Genesys(
             "subscribe", 
+            "MessagingService.sessionCleared", 
+            (e) => {
+                lastNotificationTime = Date.now();
+                console.log("session cleared event detected!", e);  // Logging für Tests
+                beep();
+            }
+        );MessagingService.sessionCleared
+
+        Genesys(
+            "subscribe", 
             "Messenger.closed", 
             (e) => {
                 lastNotificationTime = Date.now();
