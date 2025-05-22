@@ -143,7 +143,8 @@
             "subscribe", 
             "MessagingService.conversationCleared", 
             (e) => {
-                lastNotificationTime = Date.now();
+                const now = Date.now();
+                lastNotificationTime = now;
                 console.log("conversation cleared event detected!", e);  // Logging für Tests
                 beep();
             }
@@ -153,7 +154,8 @@
             "subscribe", 
             "MessagingService.sessionCleared", 
             (e) => {
-                lastNotificationTime = Date.now();
+                const now = Date.now();
+                lastNotificationTime = now;
                 console.log("session cleared event detected!", e);  // Logging für Tests
                 beep();
             }
@@ -163,7 +165,8 @@
             "subscribe", 
             "Messenger.closed", 
             (e) => {
-                lastNotificationTime = Date.now();
+                const now = Date.now();
+                lastNotificationTime = now;
                 console.log("Messenger widget closed sending event detected!", e);  // Logging für Tests
                 beep();
             }
