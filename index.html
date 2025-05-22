@@ -132,8 +132,6 @@
             "subscribe", 
             "MessagingService.sendingMessage", 
             (e) => {
-                const now = Date.now();
-                lastNotificationTime = now;
                 console.log("Message sending event detected!", e);  // Logging für Tests
                 beep();
                 const now = Date.now();
@@ -145,8 +143,7 @@
             "subscribe", 
             "MessagingService.sessionCleared", 
             (e) => {
-                const now = Date.now();
-                lastNotificationTime = now;
+                lastNotificationTime = Date.now();
                 console.log("Messenger widget closed sending event detected!", e);  // Logging für Tests
                 beep();
             }
@@ -156,10 +153,9 @@
             "subscribe", 
             "Messenger.closed", 
             (e) => {
+                lastNotificationTime = Date.now();
                 console.log("Messenger widget closed sending event detected!", e);  // Logging für Tests
                 beep();
-                const now = Date.now();
-                lastNotificationTime = now;
             }
         );
         
