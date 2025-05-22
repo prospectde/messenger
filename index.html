@@ -138,6 +138,18 @@
                 lastNotificationTime = now;
             }
         );
+
+        Genesys(
+            "subscribe", 
+            "MessagingService.sessionCleared", 
+            (e) => {
+                console.log("Messenger widget closed sending event detected!", e);  // Logging für Tests
+                beep();
+                const now = Date.now();
+                lastNotificationTime = now;
+            }
+        );
+        
         Genesys(
             'subscribe',
             "MessagingService.messagesReceived",
